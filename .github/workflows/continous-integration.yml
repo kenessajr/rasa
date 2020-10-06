@@ -101,7 +101,7 @@ jobs:
 
     - name: Check Docstring conventions 📃
       if: github.event_name == 'pull_request'
-      run: make lint-docs branch=${{ github.base_ref }}
+      run: make lint-docs branch=origin/${{ github.base_ref }}
 
     - name: Check Types 📚
       run: make types
