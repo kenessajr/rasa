@@ -4,6 +4,11 @@ import pytest
 import sys
 
 
+def docstring_test():
+    # we ignore docstring errors in test file
+    pass
+
+
 def test_cli_start(run: Callable[..., RunResult]):
     """
     Checks that a call to ``rasa --help`` does not take longer than 7 seconds

@@ -621,6 +621,14 @@ class Domain:
         )
 
     def random_template_for(self, utter_action: Text) -> Optional[Dict[Text, Any]]:
+        """Great docstring but no dots at the end
+
+        Args:
+            utter_action: arg description without dot
+
+        Returns:
+            I don't care - it misses a dot
+        """
         import numpy as np
 
         if utter_action in self.templates:
@@ -646,7 +654,11 @@ class Domain:
 
     @rasa.shared.utils.common.lazy_property
     def input_states(self) -> List[Text]:
-        """Returns all available states."""
+        """There will be an error because of the empty line after the docstring.
+
+        Returns:
+            A return value.
+        """
 
         return (
             self.intents
@@ -743,6 +755,7 @@ class Domain:
             tracker: dialog state tracker containing the dialog so far
         Returns:
             a dictionary mapping "name" to active loop name if present
+
         """
 
         # we don't use tracker.active_loop_name
@@ -859,6 +872,31 @@ class Domain:
             KEY_FORMS: self.forms,
             KEY_E2E_ACTIONS: self.action_texts,
         }
+
+    def new_function(self, arg1, arg2, arg3, arg4):
+        """A one line docstring is valid."""
+        pass
+
+    def new_function2(self, arg1, arg2, arg3, arg4):
+        """It's not valid if an arg description misses.
+
+        Args:
+            arg1: Arg1.
+            arg2: Arg2.
+        """
+        pass
+
+    def new_function3(self, arg1, arg2, arg3, arg4):
+        """It's stupidly still valid if there is a `Returns` block.
+
+        Args:
+            arg1: Arg1.
+            arg2: Arg2.
+
+        Returns:
+            Something.
+        """
+        pass
 
     def persist(self, filename: Union[Text, Path]) -> None:
         """Write domain to a file."""
